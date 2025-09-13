@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contacto</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <%- include('partials/navbar') %>
+
+  <div class="container">
+    <h3 class="center-align">Formulario de Contacto</h3>
+
+    <form action="/contact" method="POST" class="card-panel">
+      <div class="input-field">
+        <input id="nombre" type="text" name="nombre" required>
+        <label for="nombre">Nombre</label>
+      </div>
+
+      <div class="input-field">
+        <input id="email" type="email" name="email" required>
+        <label for="email">Correo electrónico</label>
+      </div>
+
+      <div class="input-field">
+        <textarea id="mensaje" class="materialize-textarea" name="mensaje" required></textarea>
+        <label for="mensaje">Mensaje</label>
+      </div>
+
+      <button type="submit" class="btn blue waves-effect waves-light">Enviar</button>
+      <a href="/" class="btn grey waves-effect waves-light">Volver</a>
+    </form>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

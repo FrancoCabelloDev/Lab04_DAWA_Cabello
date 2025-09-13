@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Videojuegos Populares</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <%- include('partials/navbar') %>
+
+  <div class="container">
+    <h3 class="center-align">Videojuegos Populares</h3>
+
+    <!-- Formulario -->
+    <form action="/formgames" method="POST" class="card-panel">
+      <div class="input-field">
+        <input id="titulo" type="text" name="titulo" required>
+        <label for="titulo">Título</label>
+      </div>
+
+      <div class="input-field">
+        <input id="genero" type="text" name="genero" required>
+        <label for="genero">Género</label>
+      </div>
+
+      <div class="input-field">
+        <input id="plataforma" type="text" name="plataforma" required>
+        <label for="plataforma">Plataforma</label>
+      </div>
+
+      <div class="input-field">
+        <input id="anio" type="number" name="anio" required>
+        <label for="anio">Año</label>
+      </div>
+
+      <div class="input-field">
+        <input id="desarrollador" type="text" name="desarrollador" required>
+        <label for="desarrollador">Desarrollador</label>
+      </div>
+
+      <button type="submit" class="btn blue waves-effect waves-light">Agregar</button>
+      <a href="/" class="btn grey waves-effect waves-light">Volver</a>
+    </form>
+
+    <!-- Lista -->
+    <h4 class="center-align">Lista de Videojuegos</h4>
+    <% if (videojuegos.length === 0) { %>
+      <p class="center-align">No hay videojuegos aún.</p>
+    <% } else { %>
+      <table class="highlight centered responsive-table">
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Género</th>
+            <th>Plataforma</th>
+            <th>Año</th>
+            <th>Desarrollador</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% videojuegos.forEach(v => { %>
+            <tr>
+              <td><%= v.titulo %></td>
+              <td><%= v.genero %></td>
+              <td><%= v.plataforma %></td>
+              <td><%= v.anio %></td>
+              <td><%= v.desarrollador %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } %>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

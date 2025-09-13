@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <%- include('partials/navbar') %>
+
+  <div class="container">
+    <h3 class="center-align">Mensajes recibidos</h3>
+
+    <a href="/contact" class="waves-effect waves-light btn">Ir al formulario</a>
+
+    <% if (messages.length === 0) { %>
+      <p>No hay mensajes aún.</p>
+    <% } else { %>
+      <ul class="collection">
+        <% messages.forEach(m => { %>
+          <li class="collection-item">
+            <strong><%= m.nombre %></strong> (<%= m.email %>)<br>
+            <em><%= m.mensaje %></em>
+          </li>
+        <% }) %>
+      </ul>
+    <% } %>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
